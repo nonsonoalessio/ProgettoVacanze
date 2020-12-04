@@ -1,0 +1,32 @@
+Generali - manutenzione repo:
+    ☐ completare file reamdme.md                                                                                               @high
+         ☐ analisi del problema, attraverso schemi ER                                                                          @critical
+         ☐ analisi del programma (codice)                                                                                      @high 
+    ☐ merge braches "NuoveModifiche" & "master"                                                                                @low 
+    ☐ non dimenticare di mettere pubblico il repo!                                                                             @low 
+
+Generali - manutenzione programma:
+    ☐ introduzione alle modalità                                                                                               @critical 
+    ☐ scrivere implementazione read-only                                                                                       @high  
+    ☐ scrivere implementazione write through                                                                                   @high
+         ☐ write da zero                                                                                                       @high 
+         ☐ append                                                                                                              @low 
+    ☐ collegare e ottimizzare il db                                                                                            @high
+    ☐ considerare l'uso di variabili stringa piuttosto che codici per le decisioni                                             @today  
+
+Cosa trattare nel database:
+    primary key && foreign key;
+    vincoli di integrità;
+    (more to come)
+
+
+Giorno #1 [04/12]:
+    Inizia lo sviluppo. Cosa è stato fatto?
+    * creazione di bozza del file reamdme, sarà il pilastro della spiegazione in cui verrà incluso ogni specie di diagramma disegnato;
+    * creazione di (parte) dell'osso del programma (anche se manca ancora "qualcosina");
+    * è stata individuata la mappa completa dei passi da fare per completare il programma.
+    Il grosso sta procedendo tutto sommato... per un buon verso.
+    L'augurio resta quello di non cedere nella fase di debug e ottimizzazione del codice.
+    Su cosa focalizzarsi domani:
+         ☐ decidere se implementare postgreSQL o un altro dbms
+         ☐ studiare un minimo per procedere.
