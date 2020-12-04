@@ -1,4 +1,5 @@
 # Progetto Vacanze
+Le immagini si inseriscono con `![alt text](http://url/to/img.png)` (sia tramite link che tramite path locale (path da verificare))
 ## Cos'è questo?
 Questo è il repo GitHub su cui è hostato il progetto di **Giura Alessio Donato** [V B S.A. @ __Liceo Pietro Paolo Parazese__, A. S. 2020/21] per le vacanze di Natale, sui databases.
 
@@ -10,6 +11,9 @@ Su questo repo vi sono diversi file, tra cui:
 * vari file nascosti (file di managment del repo), una task-list (`roadmap.todo`) non necessari all'esecuzione del codice;
 * eseguibile (`main.exe`), così da non dover creare il pacchetto in un secondo momento.
 
-# Analisi della situazione & implementazione
-__Inserire l'analisi della situazione__
+# Analisi del codice
+## Giuro che non è un esame universitario.
 
+# Analisi della situazione e considerazioni sul codice
+## Questo può essere un esame di filosofia.
+__Inserire l'analisi della situazione__
