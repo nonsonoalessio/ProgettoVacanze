@@ -1,0 +1,14 @@
+Generali - manutenzione repo:
+    ☐ scrivere file reamdme.md                                 @low 
+    ☐ non dimenticare di mettere pubblico il repo!             @low 
+
+Generali - manutenzione programma:
+    ☐ scrivere implementazione read-only                       @critical 
+    ☐ scrivere implementazione write through                   @critical 
+    ☐ collegare e ottimizzare il db                            @high 
+
+Cosa trattare nel database:
+    primary key && foreign key;
+    vincoli di integrità;
+    (more to come)
+//
