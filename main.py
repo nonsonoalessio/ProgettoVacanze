@@ -7,8 +7,6 @@ from sqlite3 import Error
 
 # definisco alcune funzioni usate più in avanti
 # prassi di code cleanup
-def calcoloCF():
-    print('Funzione vuota')
 def connessione(db_file):
     conn = None
     try:
@@ -19,7 +17,7 @@ def connessione(db_file):
         print(e)
     return conn
 def scritturaDati():
-    class cliente:
+    class cliente():
         nome = ''
         cognome = ''
         giornoNascita = 0
@@ -27,6 +25,8 @@ def scritturaDati():
         annoNascita = 0
         codiceFiscale = ''
         codiceStanza = 0
+        luogoNascita = ''
+        sesso = ''
     class stanza:
         codiceStanza = 0
         capienza = 0
@@ -40,6 +40,34 @@ def scritturaDati():
     time.sleep(1)
     print('Immettiamo quindi una nuova voce nel nostro database (ulteriori informazioni nella guida)')
     time.sleep(1)
+    disponibilitàCF = 'n'
+    cliente.nome = input('Immettere nome del cliente: ')
+    cliente.cognome = input('Immettere cognome del cliente: ')
+    cliente.giornoNascita = input('Immettere giorno di nascita del cliente: ')
+    try:
+        cliente.giornoNascita = int(cliente.giornoNascita)
+    except ValueError:
+        print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero')
+    cliente.meseNascita = input('Immettere mese di nascita del cliente, formato MM: ')
+    try:
+        cliente.meseNascita = int(cliente.giornoNascita)
+    except ValueError:
+        print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero')
+    cliente.annoNascita = input('Immettere anno di nascita del cliente: ')
+    try:
+        cliente.annoNascita = int(cliente.giornoNascita)
+    except ValueError:
+        print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero')
+    cliente.sesso = input('Immettere sesso del cliente (scelte consentite: f/m o F/M): ')
+    disponibilitàCF = input('Si dispone del codice fiscale del cliente (s/n)?')
+    while disponibilitàCF is not 's' and disponibilitàCF is not 'n':
+        if disponibilitàCF is 's':
+            cliente.codiceFiscale = input('Immetti il codice fiscale del cliente: ')
+        elif disponibilitàCF is 'n':
+            cliente.codiceFiscale = calcoloCF(cliente.nome, cliente.cognome, cliente.annoNascita, cliente.giornoNascita, cliente.sesso, cliente.meseNascita, cliente.luogoNascita)
+        else:
+            print('Scelta non valida.')
+            disponibilitàCF = input('Si dispone del codice fiscale del cliente (s/n)?')
 def letturaDati():
     print('Hello world')
 def creazioneTabella(conn, create_table_sql):
@@ -58,20 +86,20 @@ def main():
         giornoNascita integer NOT NULL,
         meseNascita integer NOT NULL,
         annoNascita integer NOT NULL,
-        codiceStanza integer NOT NULL,
+        codiceStanza integer NOT NULL
     );"""
     sql_create_stanza_table = """CREATE TABLE IF NOT EXISTS stanza (
         codiceStanza integer PRIMARY KEY,
         capienza integer,
         occupata integer NOT NULL,
         occupataDa text,
-        FOREIGN KEY (occupataDa) REFERENCES cliente (codiceFiscale) 
+        FOREIGN KEY (occupataDa) REFERENCES cliente (codiceFiscale)
     );"""
     sql_create_prenotazione_table = """CREATE TABLE IF NOT EXISTS prenotazione (
         codicePrenotazione text PRIMARY KEY,
         effettuataDa text NOT NULL,
         codiceStanza integer NOT NULL,
-        FOREIGN KEY (effettuataDa) REFERENCES cliente (codiceFiscale)
+        FOREIGN KEY (effettuataDa) REFERENCES cliente (codiceFiscale),
         FOREIGN KEY (codiceStanza) REFERENCES stanza (codiceStanza)
     );"""
     conn = connessione(database)
@@ -81,7 +109,9 @@ def main():
         creazioneTabella(conn, sql_create_prenotazione_table)
     else:
         print('Who - OPS! Si è verificato un errore')
-
+def calcoloCF(cliente.nome, cliente.cognome, cliente.annoNascita, cliente.giornoNascita, cliente.sesso, cliente.meseNascita, cliente.luogoNascita):
+    cf = ''
+    return cf
 # # # # # #      M  A  I  N      # # # # #
 # mi collego al db
 if __name__ == '__main__':
