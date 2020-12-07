@@ -2,17 +2,22 @@ Generali - manutenzione repo:
     ☐ completare file reamdme.md                                                                                               @high
          ☐ analisi del problema, attraverso schemi ER                                                                          @critical
          ☐ analisi del programma (codice)                                                                                      @high 
-    ☐ merge braches "NuoveModifiche" & "master"                                                                                @low 
+    ☐ merge finale branches "NuoveModifiche" & "master"                                                                        @low 
     ☐ non dimenticare di mettere pubblico il repo!                                                                             @low 
 
 Generali - manutenzione programma:
-    ☐ introduzione alle modalità                                                                                               @critical 
+    ✔ introduzione alle modalità                                                                                               @critical @done (7/12/2020, 18:07:42)
     ☐ scrivere implementazione read-only                                                                                       @high  
     ☐ scrivere implementazione write through                                                                                   @high
          ☐ write da zero                                                                                                       @high 
-         ☐ append                                                                                                              @low 
+         ☐ append (serve davvero?)                                                                                              
     ☐ collegare e ottimizzare il db                                                                                            @high
-    ☐ considerare l'uso di variabili stringa piuttosto che codici per le decisioni                                             @today  
+    ✔ considerare l'uso di variabili stringa piuttosto che codici per le decisioni                                             @today @done (6/12/2020, 15:49:00)
+    ☐ correggere la chiusura del programma all'apertura della guida                                                            @critical 
+    ☐ scrivere la funzione che consente di calcolare il codice fiscale                                                         @low 
+         ☐ tenere presente il discorso dell'omocodia (https://it.wikipedia.org/wiki/Omocodia) 
+    ☐ chiave primaria: è obbligatoria?                                                                                         @critical 
+    ☐ rendere associazioni 1 a n                                                                                               @critical 
 
 Cosa trattare nel database:
     primary key && foreign key;
@@ -29,4 +34,6 @@ Giorno #1 [04/12]:
     L'augurio resta quello di non cedere nella fase di debug e ottimizzazione del codice.
     Su cosa focalizzarsi domani:
          ☐ decidere se implementare postgreSQL o un altro dbms
-         ☐ studiare un minimo per procedere.
+         ☐ studiare un minimo per procedere
+
+Giorno #2 [07/12]:
