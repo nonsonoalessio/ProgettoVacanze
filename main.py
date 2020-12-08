@@ -60,10 +60,10 @@ def scritturaDati():
         print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero')
     cliente.sesso = input('Immettere sesso del cliente (scelte consentite: f/m o F/M): ')
     disponibilitàCF = input('Si dispone del codice fiscale del cliente (s/n)?')
-    while disponibilitàCF is not 's' and disponibilitàCF is not 'n':
-        if disponibilitàCF is 's':
+    while disponibilitàCF != 's' and disponibilitàCF != 'n':
+        if disponibilitàCF == 's':
             cliente.codiceFiscale = input('Immetti il codice fiscale del cliente: ')
-        elif disponibilitàCF is 'n':
+        elif disponibilitàCF == 'n':
             cliente.codiceFiscale = calcoloCF(cliente.nome, cliente.cognome, cliente.annoNascita, cliente.giornoNascita, cliente.sesso, cliente.meseNascita, cliente.luogoNascita)
         else:
             print('Scelta non valida.')
@@ -103,13 +103,13 @@ def main():
         FOREIGN KEY (codiceStanza) REFERENCES stanza (codiceStanza)
     );"""
     conn = connessione(database)
-    if conn is not None:
+    if conn != None:
         creazioneTabella(conn, sql_create_cliente_table)
         creazioneTabella(conn, sql_create_stanza_table)
         creazioneTabella(conn, sql_create_prenotazione_table)
     else:
         print('Who - OPS! Si è verificato un errore')
-def calcoloCF(cliente.nome, cliente.cognome, cliente.annoNascita, cliente.giornoNascita, cliente.sesso, cliente.meseNascita, cliente.luogoNascita):
+#def calcoloCF(cliente.nome, cliente.cognome, cliente.annoNascita, cliente.giornoNascita, cliente.sesso, cliente.meseNascita, cliente.luogoNascita):
     cf = ''
     return cf
 # # # # # #      M  A  I  N      # # # # #
@@ -132,9 +132,18 @@ guida = 'guida'
 modalità = input ('Inserisci il codice della modalità. Immetti:\n"inserimento" per inserire dati\n"lettura" per leggere i dati\n"guida" per aprire la guida\nScelta: ')
 while modalità != inserimento and modalità != lettura and modalità != guida:
     print('Il codice della scelta non è valido, riprovare per favore.')
-    modalità = input ('Inserisci il codice della modalità. Immetti:\n"inserimento" per inserire dati\n"lettura" per leggere i dati\n"guida" per aprire la guida\nScelta: ')
+    modalità = input('Inserisci il codice della modalità. Immetti:\n"inserimento" per inserire dati\n"lettura" per leggere i dati\n"guida" per aprire la guida\nScelta: ')
 if modalità == guida:
     webbrowser.open(repoLink)
+    while modalità != inserimento and modalità != lettura:
+        modalità = input('Inserisci il codice della modalità. Immetti:\n"inserimento" per inserire dati\n"lettura" per leggere i dati\nScelta: ')
+        if modalità == inserimento:
+            scritturaDati()
+        elif modalità == lettura:
+            letturaDati()
+        else:
+            print('La scelta inserita non è valida')
+            modalità = input('Inserisci il codice della modalità. Immetti:\n"inserimento" per inserire dati\n"lettura" per leggere i dati\nScelta: ')
 elif modalità == inserimento:
     scritturaDati()
 elif modalità == lettura:

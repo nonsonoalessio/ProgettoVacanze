@@ -14,7 +14,7 @@ Generali - manutenzione programma:
          ☐ inserire la scrittura in db                                                                                  @critical @today 
     ✔ collegare e ottimizzare il db                                                                                     @high @done (7/12/2020, 21:16:33)
     ✔ considerare l'uso di variabili stringa piuttosto che codici per le decisioni                                      @today @done (6/12/2020, 15:49:00)
-    ☐ correggere la chiusura del programma all'apertura della guida                                                     @critical @today  
+    ✔ correggere la chiusura del programma all'apertura della guida                                                     @critical @today @done (8/12/2020, 16:43:58)
     ☐ scrivere la funzione che consente di calcolare il codice fiscale                                                  @low 
          ☐ tenere presente il discorso dell'omocodia (https://it.wikipedia.org/wiki/Omocodia) 
     ☐ chiave primaria: è obbligatoria?                                                                                  @critical 
@@ -47,5 +47,5 @@ Giorno #2 [07/12]:
              ☐ completare la parte relativa ai dati in input;
              ☐ rivedere la storia delle classi e passare i dati alle varie funzioni.
         Dalle task:
-             ☐ correggere la chiusura del programma all'apertura della guida @critical
+             ✔ correggere la chiusura del programma all'apertura della guida @critical @done (8/12/2020, 16:43:53)
              ☐ inserire la scrittura in db @critical 
