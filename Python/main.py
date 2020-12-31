@@ -17,54 +17,58 @@ def connessione(db_file):
         print(e)
     return conn
 def scritturaDati():
-    class cliente():
-        nome = ''
-        cognome = ''
-        giornoNascita = 0
-        meseNascita = 0
-        annoNascita = 0
-        codiceFiscale = ''
-        codiceStanza = 0
-        luogoNascita = ''
-        sesso = ''
+    class cliente:
+        def __init__(self, nome, cognome, giornoNascita, meseNascita, annoNascita, luogoNascita, sesso, codiceFiscale, codiceStanza):
+            self.nome = ''
+            self.cognome = ''
+            self.giornoNascita = 0
+            self.meseNascita = 0
+            self.annoNascita = 0
+            self.codiceFiscale = ''
+            self.codiceStanza = 0
+            self.luogoNascita = ''
+            self.sesso = ''
     class stanza:
-        codiceStanza = 0
-        capienza = 0
-        occupata = False
-        occupataDa = ''
+        def __init__(self, codiceStanza, capienza, occupata, occupataDa):
+            self.codiceStanza = 0
+            self.capienza = 0
+            self.occupata = False
+            self.occupataDa = ''
     class prenotazione:
-        codicePrenotazione = ''
-        effettuataDa = ''
-        codiceStanza = 0    
+        def __init__(self, codicePrenotazione, effettuataDa, codiceStanza):
+            self.codicePrenotazione = ''
+            self.effettuataDa = ''
+            self.codiceStanza = 0    
     print('Questa è la modalità di immissione dati.')
     time.sleep(1)
     print('Immettiamo quindi una nuova voce nel nostro database (ulteriori informazioni nella guida)')
     time.sleep(1)
     disponibilitàCF = 'n'
-    cliente.nome = input('Immettere nome del cliente: ')
-    cliente.cognome = input('Immettere cognome del cliente: ')
-    cliente.giornoNascita = input('Immettere giorno di nascita del cliente: ')
+    nomeInput = input('Immettere nome del cliente: ')
+    cognomeInput = input('Immettere cognome del cliente: ')
+    giornoNascitaInput = input('Immettere giorno di nascita del cliente: ')
     try:
-        cliente.giornoNascita = int(cliente.giornoNascita)
+        giornoNascitaInput = int(giornoNascitaInput)
     except ValueError:
         print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero')
-    cliente.meseNascita = input('Immettere mese di nascita del cliente, formato MM: ')
+    meseNascitaInput = input('Immettere mese di nascita del cliente, formato MM: ')
     try:
-        cliente.meseNascita = int(cliente.giornoNascita)
+        meseNascitaInput = int(cliente.meseNascitaInput)
     except ValueError:
         print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero')
-    cliente.annoNascita = input('Immettere anno di nascita del cliente: ')
+    annoNascitaInput = input('Immettere anno di nascita del cliente: ')
     try:
-        cliente.annoNascita = int(cliente.giornoNascita)
+        annoNascitaInput = int(annoNascitaInput)
     except ValueError:
         print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero')
-    cliente.sesso = input('Immettere sesso del cliente (scelte consentite: f/m o F/M): ')
+    sessoInput = input('Immettere sesso del cliente (scelte consentite: f/m o F/M): ')
+    # vincolo di integrità
     disponibilitàCF = input('Si dispone del codice fiscale del cliente (s/n)?')
     while disponibilitàCF != 's' and disponibilitàCF != 'n':
         if disponibilitàCF == 's':
-            cliente.codiceFiscale = input('Immetti il codice fiscale del cliente: ')
+            codiceFiscaleInput = input('Immetti il codice fiscale del cliente: ')
         elif disponibilitàCF == 'n':
-            cliente.codiceFiscale = calcoloCF(cliente.nome, cliente.cognome, cliente.annoNascita, cliente.giornoNascita, cliente.sesso, cliente.meseNascita, cliente.luogoNascita)
+            codiceFiscaleInput = calcoloCF(nomeInput, cognomeInput, annoNascitaInput, giornoNascitaInput, sessoInput, meseNascitaInput, luogoNascitaInput)
         else:
             print('Scelta non valida.')
             disponibilitàCF = input('Si dispone del codice fiscale del cliente (s/n)?')
@@ -109,7 +113,7 @@ def main():
         creazioneTabella(conn, sql_create_prenotazione_table)
     else:
         print('Who - OPS! Si è verificato un errore')
-#def calcoloCF(cliente.nome, cliente.cognome, cliente.annoNascita, cliente.giornoNascita, cliente.sesso, cliente.meseNascita, cliente.luogoNascita):
+calcoloCF(nomeInput, cognomeInput, annoNascitaInput, giornoNascitaInput, sessoInput, meseNascitaInput, luogoNascitaInput):    
     cf = ''
     return cf
 # # # # # #      M  A  I  N      # # # # #
