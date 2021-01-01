@@ -48,6 +48,8 @@ Giorno #3 [01/01 - Happy new year!]:
      si rimettono le mani in pasta col codice. Subito fuori i vincoli di integrità, inclusi e sistemati nel programma per bene.
      Completata anche la scrittura in db. Piccola soddisfazione? Primo lavoro con implementazioni di feature di OOP. WOAH. Grazie prof!
           Su cosa concentrarsi domani:
+               ☐ Correggere non chiusura del programma ad os.system("exit")                                             @critical @today 
+               ☐ Correggere cicli ad immissione codice fiscale (non prende input con 's')                               @critical @today 
                ☐ Terminare modalità write.                                                                              @critical @today 
                ☐ Comunicare i vincoli di integrità da inserire in altre parti del lavoro                                @critical @today 
                ☐ Terminare append + cancellazione dati oppure modalità lettura.                                         @high @today 
