@@ -7,7 +7,7 @@ from sqlite3 import Error
 
 # definisco alcune funzioni usate più in avanti
 # prassi di code cleanup
-def vincoliIntegrita(annoCorrente, nomeInput, cognomeInput, giornoNascitaInput, meseNascitaInput, annoNascitaInput, luogoNascitaInput, sessoInput, codiceFiscaleInput):
+def vincoliIntegritaCliente(annoCorrente, nomeInput, cognomeInput, giornoNascitaInput, meseNascitaInput, annoNascitaInput, luogoNascitaInput, sessoInput, codiceFiscaleInput):
     while nomeInput == '':
         nomeInput = input('Il nome inserito non è valido (nessun nome è stato inserito!). Immettere il nome. ')
     while cognomeInput == '':
@@ -57,6 +57,21 @@ def vincoliIntegrita(annoCorrente, nomeInput, cognomeInput, giornoNascitaInput, 
         sessoInput = input('Il sesso inserito non è valido (nessun sesso è stato inserito!). Immettere il nome. ')
     while codiceFiscaleInput == '':
         codiceFiscaleInput = input('Il CF inserito non è valido (nessun CF è stato inserito!). Immettere il CF. ')
+def vincoliIntegritaStanza(codiceStanzaInput, capienzaInput):
+    while codiceStanzaInput < 0:
+        codiceStanzaInput = input('Il codice della stanza inserito non è valido. Riprova.\n')
+        try:
+            codiceStanzaInput = int(codiceStanzaInput)
+        except ValueError:
+            print('E\' stato inserito un valore non valido (non convertibile ad intero). Il programma verrà arrestato.')
+            os.system("exit")
+    while capienzaInput < 0 and capienzaInput > 4:
+        capienzaInput = input('Il valore della capienza non è valido; ci sono stanze da (min) 1 a (max) 4 posti letto. Riprova.\n')
+        try:
+            capienzaInput = int(capienzaInput)
+        except ValueError:
+            print('E\' stato inserito un valore non valido (non convertibile ad intero). Il programma verrà arrestato.')
+            os.system("exit")
 def connessione(db_file):
     conn = None
     try:
@@ -127,7 +142,7 @@ def scritturaDati():
         else:
             print('Scelta non valida.')
             disponibilitàCF = input('Si dispone del codice fiscale del cliente (s/n)?')
-    vincoliIntegrita(annoCorrente, nomeInput, cognomeInput, giornoNascitaInput, meseNascitaInput, annoNascitaInput, luogoNascitaInput, sessoInput, codiceFiscaleInput)
+    vincoliIntegritaCliente(annoCorrente, nomeInput, cognomeInput, giornoNascitaInput, meseNascitaInput, annoNascitaInput, luogoNascitaInput, sessoInput, codiceFiscaleInput)
     print('Ben fatto! Raccogliamo ora i dati relativi alla stanza')
     codiceStanzaInput = input('Immettere ora il codice della stanza: ')
     try:
@@ -141,15 +156,22 @@ def scritturaDati():
     except ValueError:
         print('E\' stato inserito un valore non valido (non convertibile ad intero). Il programma verrà arrestato.')
         os.system("exit")
-    occupataDaInput = input('La stanza è occupata? Inserire s per sì, n per no: ')
-    while occupataDaInput != 's' and occupataDaInput != 'S' and occupataDaInput != 'n' and occupataDaInput != 'N':
-        occupataDaInput = input('La selezione non è valida, riprova.\n')
-    if occupataDaInput == 's' or occupataDaInput == 'S':
-        occupataDaInputBool = True
+    occupataInput = input('La stanza è occupata? Inserire s per sì, n per no: ')
+    while occupataInput != 's' and occupataInput != 'S' and occupataInput != 'n' and occupataInput != 'N':
+        occupataInput = input('La selezione non è valida, riprova.\n')
+    if occupataInput == 's' or occupataInput == 'S':
+        occupataInputBool = True
     else:
-        occupataDaInputBool = False     
+        occupataInputBool = False  
+    vincoliIntegritaStanza(codiceStanzaInput, capienzaInput) 
+    print('Bene, ultimo passaggio automagico. I dati della prenotazione vengono ricavati automaticamente.')
     cliente1 = cliente(nomeInput, cognomeInput, giornoNascitaInput, meseNascitaInput, annoNascitaInput, luogoNascitaInput, sessoInput, codiceFiscaleInput, codiceStanzaInput)
-    stanza1 = stanza(codiceStanzaInput, capienzaInput, occupataDaInputBool,)
+    occupataDa = cliente1.codiceFiscale
+    stanza1 = stanza(codiceStanzaInput, capienzaInput, occupataInputBool, occupataDa)
+    codicePrenotazione = cliente1.codiceFiscale + stanza1.codiceStanza
+    effettuataDa = cliente1.codiceFiscale
+    codiceStanza = stanza1.codiceStanza
+    prenotazione1 = prenotazione(codicePrenotazione, effettuataDa, codiceStanza)
 def letturaDati():
     print('Hello world')
 def creazioneTabella(conn, create_table_sql):

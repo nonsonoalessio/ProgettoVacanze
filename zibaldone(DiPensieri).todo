@@ -1,9 +1,7 @@
 Generali - manutenzione repo:
-    ☐ completare file reamdme.md                                                                                        @high
-         ☐ analisi del problema, attraverso schemi ER                                                                   @critical
-         ☐ analisi del programma (codice)                                                                               @high 
-    ☐ merge finale branches "NuoveModifiche" & "master"                                                                 @low 
-    ☐ non dimenticare di mettere pubblico il repo!                                                                      @low 
+    ☐ riscrivere file reamdme.md                                                                                        @critical                                                                           @high 
+    ☐ merge finale branches                                                                                             @high 
+    ✔ non dimenticare di mettere pubblico il repo!                                                                      @low @done (1/1/2021, 22:01:26)
 
 Generali - manutenzione programma:
     ✔ introduzione alle modalità                                                                                        @critical @done (7/12/2020, 18:07:42)
@@ -16,15 +14,10 @@ Generali - manutenzione programma:
     ✔ considerare l'uso di variabili stringa piuttosto che codici per le decisioni                                      @today @done (6/12/2020, 15:49:00)
     ✔ correggere la chiusura del programma all'apertura della guida                                                     @critical @today @done (8/12/2020, 16:43:58)
     ☐ scrivere la funzione che consente di calcolare il codice fiscale                                                  @low 
-         ☐ tenere presente il discorso dell'omocodia (https://it.wikipedia.org/wiki/Omocodia) 
-    ☐ chiave primaria: è obbligatoria?                                                                                  @critical 
-    ☐ rendere associazioni 1 a n                                                                                        @critical 
+         ☐ tenere presente il discorso dell'omocodia (https://it.wikipedia.org/wiki/Omocodia)
 
-Cosa trattare nel database:
-    primary key && foreign key;
-    vincoli di integrità;
-    (more to come)
-
+Generali - Gestione lavoro:
+    ☐ comunicare vincoli di integrità                                                                                   @critical 
 
 Giorno #1 [04/12]:
     Inizia lo sviluppo. Cosa è stato fatto?
@@ -49,3 +42,12 @@ Giorno #2 [07/12]:
         Dalle task:
              ✔ correggere la chiusura del programma all'apertura della guida @critical @done (8/12/2020, 16:43:53)
              ☐ inserire la scrittura in db @critical 
+
+Giorno #3 [01/01 - Happy new year!]:
+     Si torna all'opera dopo il breve stacco di filosofia. A bomba, dopo aver smatatto un po' per ottimizzare le branches, 
+     si rimettono le mani in pasta col codice. Subito fuori i vincoli di integrità, inclusi e sistemati nel programma per bene.
+     Completata anche la scrittura in db. Piccola soddisfazione? Primo lavoro con implementazioni di feature di OOP. WOAH. Grazie prof!
+          Su cosa concentrarsi domani:
+               ☐ Terminare modalità write.                                                                              @critical @today 
+               ☐ Comunicare i vincoli di integrità da inserire in altre parti del lavoro                                @critical @today 
+               ☐ Terminare append + cancellazione dati oppure modalità lettura.                                         @high @today 
