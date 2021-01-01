@@ -7,6 +7,21 @@ from sqlite3 import Error
 
 # definisco alcune funzioni usate più in avanti
 # prassi di code cleanup
+def vincoliIntegrita(nomeInput, cognomeInput, giornoNascitaInput, meseNascitaInput, annoNascitaInput, luogoNascita, sessoInput, codiceFiscaleInput, codiceStanza):
+    while nomeInput = '':
+        nomeInput = input('Il nome inserito non è valido (nessun nome è stato inserito!). Immettere il nome. ')
+    while cognomeInput = '':
+        cognomeInput = input('Il cognome inserito non è valido (nessun cognome è stato inserito!). Immettere il cognome. ')
+    while meseNascitaInput < 1 and meseNascitaInput > 12:
+        meseNascitaInput = input('Il mese di nascita inserito non è corretto. Immettere il mese di nascita corretto(formato MM). ')
+        try:
+            meseNascitaInput = int(cliente.meseNascitaInput)
+        except ValueError:
+            print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero. Il programma verrà arrestato.')
+            os.system("exit")
+    while giornoNascitaInput < 1 and giornoNascitaInput > 31:
+        giornoNascitaInput = input('Il giorno di nascita non è valido. Inserire il giorno di nascita corretto.')
+
 def connessione(db_file):
     conn = None
     try:
@@ -17,57 +32,71 @@ def connessione(db_file):
         print(e)
     return conn
 def scritturaDati():
-    class cliente():
-        nome = ''
-        cognome = ''
-        giornoNascita = 0
-        meseNascita = 0
-        annoNascita = 0
-        codiceFiscale = ''
-        codiceStanza = 0
-        luogoNascita = ''
-        sesso = ''
+    class cliente:
+        def __init__(self, nome, cognome, giornoNascita, meseNascita, annoNascita, luogoNascita, sesso, codiceFiscale, codiceStanza):
+            self.nome = ''
+            self.cognome = ''
+            self.giornoNascita = 0
+            self.meseNascita = 0
+            self.annoNascita = 0
+            self.codiceFiscale = ''
+            self.codiceStanza = 0
+            self.luogoNascita = ''
+            self.sesso = ''
     class stanza:
-        codiceStanza = 0
-        capienza = 0
-        occupata = False
-        occupataDa = ''
+        def __init__(self, codiceStanza, capienza, occupata, occupataDa):
+            self.codiceStanza = 0
+            self.capienza = 0
+            self.occupata = False
+            self.occupataDa = ''
     class prenotazione:
-        codicePrenotazione = ''
-        effettuataDa = ''
-        codiceStanza = 0    
+        def __init__(self, codicePrenotazione, effettuataDa, codiceStanza):
+            self.codicePrenotazione = ''
+            self.effettuataDa = ''
+            self.codiceStanza = 0    
     print('Questa è la modalità di immissione dati.')
     time.sleep(1)
     print('Immettiamo quindi una nuova voce nel nostro database (ulteriori informazioni nella guida)')
     time.sleep(1)
     disponibilitàCF = 'n'
-    cliente.nome = input('Immettere nome del cliente: ')
-    cliente.cognome = input('Immettere cognome del cliente: ')
-    cliente.giornoNascita = input('Immettere giorno di nascita del cliente: ')
+    nomeInput = input('Immettere nome del cliente: ')
+    cognomeInput = input('Immettere cognome del cliente: ')
+    giornoNascitaInput = input('Immettere giorno di nascita del cliente: ')
     try:
-        cliente.giornoNascita = int(cliente.giornoNascita)
+        giornoNascitaInput = int(giornoNascitaInput)
     except ValueError:
-        print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero')
-    cliente.meseNascita = input('Immettere mese di nascita del cliente, formato MM: ')
+        print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero. Il programma verrà arrestato.')
+        os.system("exit")
+    meseNascitaInput = input('Immettere mese di nascita del cliente, formato MM: ')
     try:
-        cliente.meseNascita = int(cliente.giornoNascita)
+        meseNascitaInput = int(cliente.meseNascitaInput)
     except ValueError:
-        print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero')
-    cliente.annoNascita = input('Immettere anno di nascita del cliente: ')
+        print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero. Il programma verrà arrestato.')
+        os.system("exit")
+    annoNascitaInput = input('Immettere anno di nascita del cliente: ')
     try:
-        cliente.annoNascita = int(cliente.giornoNascita)
+        annoNascitaInput = int(annoNascitaInput)
+        annoCorrente = time.strftime("%Y")
+        annoCorrente = int(annoCorrente)
+        # vincolo di integrità: il cliente deve avere almeno 18 anni per prenotare una stanza.
+        if (annoCorrente - annoNascitaInput) < 18:
+            print('Questo cliente non può prenotare una camera d\'hotel!\nIl progrmma verrà chiuso.') 
+            os.system("exit")
     except ValueError:
-        print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero')
-    cliente.sesso = input('Immettere sesso del cliente (scelte consentite: f/m o F/M): ')
+        print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero. Il programma verrà chiuso.')
+        os.system("exit")
+    sessoInput = input('Immettere sesso del cliente (scelte consentite: f/m o F/M): ')    
     disponibilitàCF = input('Si dispone del codice fiscale del cliente (s/n)?')
     while disponibilitàCF != 's' and disponibilitàCF != 'n':
         if disponibilitàCF == 's':
-            cliente.codiceFiscale = input('Immetti il codice fiscale del cliente: ')
+            codiceFiscaleInput = input('Immetti il codice fiscale del cliente: ')
         elif disponibilitàCF == 'n':
-            cliente.codiceFiscale = calcoloCF(cliente.nome, cliente.cognome, cliente.annoNascita, cliente.giornoNascita, cliente.sesso, cliente.meseNascita, cliente.luogoNascita)
+            codiceFiscaleInput = calcoloCF(nomeInput, cognomeInput, annoNascitaInput, giornoNascitaInput, sessoInput, meseNascitaInput, luogoNascitaInput)
         else:
             print('Scelta non valida.')
             disponibilitàCF = input('Si dispone del codice fiscale del cliente (s/n)?')
+    vincoliIntegrita(nomeInput, cognomeInput, giornoNascitaInput, meseNascitaInput, annoNascitaInput, luogoNascita, sessoInput, codiceFiscaleInput, codiceStanza)
+    cliente1 = cliente(nomeInput, cognomeInput, giornoNascitaInput, meseNascitaInput, annoNascitaInput, luogoNascita, sessoInput, codiceFiscaleInput, codiceStanza)
 def letturaDati():
     print('Hello world')
 def creazioneTabella(conn, create_table_sql):
@@ -109,7 +138,7 @@ def main():
         creazioneTabella(conn, sql_create_prenotazione_table)
     else:
         print('Who - OPS! Si è verificato un errore')
-#def calcoloCF(cliente.nome, cliente.cognome, cliente.annoNascita, cliente.giornoNascita, cliente.sesso, cliente.meseNascita, cliente.luogoNascita):
+calcoloCF(nomeInput, cognomeInput, annoNascitaInput, giornoNascitaInput, sessoInput, meseNascitaInput, luogoNascitaInput):    
     cf = ''
     return cf
 # # # # # #      M  A  I  N      # # # # #
