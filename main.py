@@ -38,7 +38,7 @@ def vincoliIntegritaCliente(annoCorrente, nomeInput, cognomeInput, giornoNascita
                     except ValueError:
                         print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero. Il programma verrà arrestato.')
                         os.system("exit")
-        if resto is not 0:
+        if resto != 0:
             if meseNascitaInput == 2:
                 while giornoNascitaInput < 1 and giornoNascitaInput > 28:
                     giornoNascitaInput = input('Il giorno di nascita non è valido. Inserire il giorno di nascita corretto.')
@@ -132,16 +132,21 @@ def scritturaDati():
         print('Si è verificato un errore. E\' stato immesso un carattere non convertibile in intero. Il programma verrà chiuso.')
         os.system("exit")
     sessoInput = input('Immettere sesso del cliente (scelte consentite: f/m o F/M): ')
+    sessoInput = sessoInput.lower()
+    while sessoInput != 'm' and sessoInput != 'f':
+        sessoInput = input('Il valore immesso non è valido. Riprova.\n')
+        sessoInput = sessoInput.lower()
     luogoNascitaInput = input('Immettere il luogo di nascita del cliente: ')    
     disponibilitàCF = input('Si dispone del codice fiscale del cliente (s/n)?')
+    disponibilitàCF = disponibilitàCF.lower()
     while disponibilitàCF != 's' and disponibilitàCF != 'n':
-        if disponibilitàCF == 's':
-            codiceFiscaleInput = input('Immetti il codice fiscale del cliente: ')
-        elif disponibilitàCF == 'n':
-            codiceFiscaleInput = calcoloCF(nomeInput, cognomeInput, annoNascitaInput, giornoNascitaInput, sessoInput, meseNascitaInput, luogoNascitaInput)
-        else:
-            print('Scelta non valida.')
-            disponibilitàCF = input('Si dispone del codice fiscale del cliente (s/n)?')
+        print('Scelta non valida.')
+        disponibilitàCF = input('Si dispone del codice fiscale del cliente (s/n)?')
+        disponibilitàCF = disponibilitàCF.lower()
+    if disponibilitàCF == 's':
+        codiceFiscaleInput = input('Immetti il codice fiscale del cliente: ')
+    elif disponibilitàCF == 'n':
+        codiceFiscaleInput = calcoloCF(nomeInput, cognomeInput, annoNascitaInput, giornoNascitaInput, sessoInput, meseNascitaInput, luogoNascitaInput)
     vincoliIntegritaCliente(annoCorrente, nomeInput, cognomeInput, giornoNascitaInput, meseNascitaInput, annoNascitaInput, luogoNascitaInput, sessoInput, codiceFiscaleInput)
     print('Ben fatto! Raccogliamo ora i dati relativi alla stanza')
     codiceStanzaInput = input('Immettere ora il codice della stanza: ')
@@ -157,7 +162,8 @@ def scritturaDati():
         print('E\' stato inserito un valore non valido (non convertibile ad intero). Il programma verrà arrestato.')
         os.system("exit")
     occupataInput = input('La stanza è occupata? Inserire s per sì, n per no: ')
-    while occupataInput != 's' and occupataInput != 'S' and occupataInput != 'n' and occupataInput != 'N':
+    occupataInput = occupataInput.lower()
+    while occupataInput != 's' and occupataInput != 'n':
         occupataInput = input('La selezione non è valida, riprova.\n')
     if occupataInput == 's' or occupataInput == 'S':
         occupataInputBool = True
