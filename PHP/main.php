@@ -1,2 +1,5 @@
-$loadEnv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+<?php
+
+require __DIR__ . '/app/app.php';
+
+?>
