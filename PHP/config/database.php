@@ -41,7 +41,7 @@ class Database{
 
     public static function Varchar($number=100){
 
-        if( $number < 0 ) throw  new Exception('Inserire un numero maggiore di 0 per VARCHAR');
+        if( $number < 0 ) throw  new \Exception('Inserire un numero maggiore di 0 per VARCHAR');
         
         return "VARCHAR($number) ";
 
@@ -56,24 +56,58 @@ class Database{
 
     public static function Enum(Array $values){
 
-        if( count($values) == 0 ) throw  new Exception('Inserire dei valori per ENUM');
+        if( count($values) == 0 ) throw  new \Exception('Inserire dei valori per ENUM');
 
         $stringToReturn='ENUM(';
 
         foreach($values as $value){
 
-            $stringToReturn .= ", '$value' ";
+            $stringToReturn .= " '$value',";
 
         }
+        $stringToReturn[-1] =')';
+     
 
-        return $stringToReturn . ') ';
+        return $stringToReturn;
+    }
+
+    public static function NotNull(){
+
+         return 'NOT NULL ';
+
+    }
+
+    public static function Integer(){
+
+        return 'INTEGER ';
+
+    }
+
+    public static function Float(){
+
+        return 'FLOAT ';
+
+    }
+    
+    public static function Timestamp(){
+
+        return 'TIMESTAMP ';
+
     }
 
     public static function PrimaryKey($autoIncrement=null){
 
-        if( $autoIncrement ) return "PRIMARY KEY NOT NULL AUTOINCREMENT";
+        if( $autoIncrement ) return "AUTO_INCREMENT PRIMARY KEY";
 
-        return "PRIMARY KEY NOT NULL ";
+        return "PRIMARY KEY";
+
+    }
+
+    public static function ForeignKey($tableTo, $attributeTo){
+
+
+        return "REFERENCES $tableTo($attributeTo)";
+
 
     }
 

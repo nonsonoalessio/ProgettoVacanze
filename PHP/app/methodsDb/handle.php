@@ -1,6 +1,7 @@
 <?php
 namespace PHP\App\MethodsDb;
 
+use Exception;
 use PDOException;
 use PHP\App\Traits\SubFunctionsDatabase;
 use PHP\App\MethodsDb\Connection;
@@ -14,7 +15,8 @@ class Handle extends Connection{
 
 
         //check if the table is already present
-        if( !self::tableIsAlreadyPresent($nameTable) ) return 'Table is already present';
+        if( !self::tableIsAlreadyPresent($nameTable) ) return new Exception('Table is already present');
+
 
         //starting to create the query
         $query = " CREATE TABLE $nameTable( ";
@@ -23,9 +25,9 @@ class Handle extends Connection{
         foreach ( $nameColumnAndAttribute as $name => $attribute ){
 
             $query .= "$name " . " $attribute,";
-
+            
         }
-
+       
         //to override the last ' ; '
         $query[-1] = ');';
         
@@ -45,7 +47,7 @@ class Handle extends Connection{
 
         }catch(PDOException $e){
 
-            return [ 'error' => $e->getMessage() , 'status' => 0 ];
+            return  $e->getMessage();
 
         }finally{
 

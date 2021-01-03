@@ -10,6 +10,7 @@ require __DIR__. '/methodsDb/handle.php';
 
 
 use PHP\App\MethodsDb\Handle;
+
 $tables=require( __DIR__. '/../config/tables.php' );
 $test = [
 
@@ -23,7 +24,7 @@ foreach ( $tables as $name => $table){
 
     $result=Handle::createTable($name, $table);
 
-    if( isset($result['status']) ) echo $result['error'];
+    if( $result ) echo $result;
 
 }
 
