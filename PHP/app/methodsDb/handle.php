@@ -41,7 +41,7 @@ class Handle extends Connection{
 
         try{
 
-            parent::getPointer()->exec($query);
+            return parent::getPointer()->exec($query);
 
         }catch(PDOException $e){
 

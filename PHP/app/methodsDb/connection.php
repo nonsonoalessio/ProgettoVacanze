@@ -5,7 +5,7 @@ namespace PHP\App\MethodsDb;
 use PDO;
 use PDOException;
 
-use PHP\Config\Database\Database;
+use PHP\App\Config\Database;
 
 class Connection{
 
