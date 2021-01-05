@@ -34,6 +34,22 @@ torna utile avere una panoramica dell'organico/personale, di cui salviamo l'id d
 *Ogni prenotazione `contiene` una **stanza** [associazione 1, 1]:
 
 * stanze:
-qui raccogliamo il codice univoco della stanza [primary key]
+qui raccogliamo il codice univoco della stanza [primary key], la capienza della stanza e la foreign key dell'id del piano, per poterla localizzare nella struttura
+
+*Ogni **piano** `ha` almeno una stanza [associazione 1, N]*:
+
+* piani:
+del piano ci serve sapere l'id, che può corrispondere al livello della struttura, costoBaseStanza24??? e il giorno della settimana in cui si puliscono tutte le camere del piano abitualmente
+
+*Lo stipendio dei lavoratori e le entrate dalle prenotazioni `formano` il **bilancio** [Associazione ?]*:
+
+* tracciamentiEconomiciMensili:
+In questa tabella raccogliamo tutto ciò che riguarda il bilancio, mese per mese; assegniamo un id al mese (può essere assegnato magari concatenando il numero del mese con l'anno di riferimento), si annotano entrate, spese, guadagno, il mese e l'anno.
+
+Abbiamo costruito lo schema concettuale (diagramma ER):
+
+link imgur allo schema.
+
+
 
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
