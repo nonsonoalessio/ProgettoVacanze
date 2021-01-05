@@ -18,33 +18,28 @@ Attraverso questo lavoro, andiamo a rappresentare l'intera struttura di un hotel
 
 ## Tabelle
 Quindi, andiamo a creare le tabelle:
-* clienti:
+* Clienti:
 attraverso questa tabella raccogliamo il codice fiscale (chiave primaria, ogni codice fiscale identifica in modo univoco ogni persona), nome, cognome, sesso, la data di nascita, il luogo di nascita e il percorso nella rete locale dell'albergo della scansione del documento di identità.
 
 *Il cliente `effettua` almeno una **prenotazione** [associazione  1, N]*
 
-* prenotazioni:
+* Prenotazioni:
 qui salviamo il codice della prenotazione (chiave primaria), in modo da individuare in modo univoco ogni prenotazione [per far sì che sia univoco, si può creare un criterio che prevede, ad esempio, di concatenare il codice fiscale del cliente con il codice della stanza o, in alternativa, con il riferimento temporale relativo alla data in cui viene effettuata la prenotazione], data di inizio e data di fine della prenotazione, il costo della prenotazione, il mezzo con cui la prenotazione viene saldata (carta o contanti) e dei riferimenti presi da altre tabelle [Foreign keys], come da chi viene affettuata la prenotazione (si riferisce al codice fiscale del cliente), da chi viene lavorata la prenotazione (l'id del dipendente) e la stanza che viene assegnata a quella prenotazione (il codice univoco della stanza);
 
 *Un **dipendente** `prende` in carico e lavora una prenotazione [associazione 1, N]*
 
-* dipendenti:
+* Dipendenti:
 torna utile avere una panoramica dell'organico/personale, di cui salviamo l'id del lavoratore [primary key, può corrispondere al numero del badge di accesso o al codice fiscale], il nome, il cognome, l'email qualora bisogni inviare qualche comunicazione, gli estremi temporali (inizio e fine) di ogni turno lavorativo, lo stipendio e il giorno libero nella settimana
 
 *Ogni prenotazione `contiene` una **stanza** [associazione 1, 1]:
 
-* stanze:
+* Stanze:
 qui raccogliamo il codice univoco della stanza [primary key], la capienza della stanza e la foreign key dell'id del piano, per poterla localizzare nella struttura
 
 *Ogni **piano** `ha` almeno una stanza [associazione 1, N]*:
 
-* piani:
+* Piani:
 del piano ci serve sapere l'id, che può corrispondere al livello della struttura, costoBaseStanza24??? e il giorno della settimana in cui si puliscono tutte le camere del piano abitualmente
-
-*Lo stipendio dei lavoratori e le entrate dalle prenotazioni `formano` il **bilancio** [Associazione ?]*:
-
-* tracciamentiEconomiciMensili:
-In questa tabella raccogliamo tutto ciò che riguarda il bilancio, mese per mese; assegniamo un id al mese (può essere assegnato magari concatenando il numero del mese con l'anno di riferimento), si annotano entrate, spese, guadagno, il mese e l'anno.
 
 Abbiamo costruito lo schema concettuale (diagramma ER):
 
@@ -53,22 +48,22 @@ Abbiamo costruito lo schema concettuale (diagramma ER):
 
 ## Vincoli di integrità
 Abbiamo individuato 10 vincoli di integrità tra i vari attributi:
-* `prenotazioni.costo_totale_da_pagare > 0`:
+* `Prenotazioni.costo_totale_da_pagare > 0`:
 Il costo della prenotazione non può essere minore od uguale di zero [euro], altrimenti l'albergo non avrebbe nemmeno entrate lorde!
 
-* `dipendenti.stipendio > 0`:
+* `Dipendenti.stipendio > 0`:
 Analogamente a quanto avviene per la prenotazione, il salario di un dipendente non può essere minore od uguale a zero [euro], altrimenti sarebbe una prassi simile allo sfruttamento!
 
-* `DATEDIFF(now(), clienti.data_di_nascita) >= (18*365))`:
+* `DATEDIFF(now(), Clienti.data_di_nascita) >= (18*365))`:
 Attraverso la funzione di SQL `DATEDIFF`, calcoliamo la differenza in giorni tra due date; applichiamo questa funzione sulla data di nascita del cliente e verifichiamo che abbia almeno diciotto anni, l'età minima secondo la legislazione italiana per prenotare una camera d'albergo.
 
-* `dipendenti.data_fine_prenotazione > prenotazioni.data_inizio_prenotazione`:
+* `Prenotazioni.data_fine_prenotazione > Prenotazioni.data_inizio_prenotazione`:
 Ci assicuriamo che la data di fine della prenotazione non sia antecendente alla data di inizio prenotazione; sarebbe impossibile far terminare una prenotazione ancor prima che essa inizi.
 
-* `LOCATE(".pdf", clienti.immagine_documento_scannerizzato) != 0`:
+* `LOCATE(".pdf", Clienti.immagine_documento_scannerizzato) != 0`:
 Attraverso questo costrutto, ci assicuriamo che il documento di identità scannerizzato abbia estensione .pdf.
 
-* `stanze.capienza_massima > 0`:
+* `Stanze.capienza_massima > 0`:
 La capienza massima di ciascuna stanza non può essere minore od uguale a zero, altrimenti non ci sarebbe spazio per nessun ospite!
 
 * ``
