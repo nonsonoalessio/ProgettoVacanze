@@ -1,19 +1,39 @@
 # Progetto Vacanze
 Le immagini si inseriscono con `![alt text](http://url/to/img.png)` (sia tramite link che tramite path locale (path da verificare))
 ## Cos'è questo?
-Questo è il repo GitHub su cui è hostato il progetto di **Giura Alessio Donato** [V B S.A. @ __Liceo Pietro Paolo Parazese__, A. S. 2020/21] per le vacanze di Natale, sui databases.
+Questo è il repo GitHub su cui è hostato il progetto di **Giura Alessio Donato, Carchia Bruno, Grasso Mario, Serluca Noemi, Trofimets Antonio** [V B S.A. @ __Liceo Pietro Paolo Parazese__, A. S. 2020/21] per le vacanze di Natale, sui databases.
 
 ## Cosa contiene?
 Su questo repo vi sono diversi file, tra cui:
-* un file sorgente Python (`main.py`), attraverso il quale si va a creare un database ed implementarlo in un programmino basilare, eseguibile attraverso un terminale/cmd;
-* i file di gestione del db; _la lista?_
-* il file **README.md** (che state leggendo già ora), attraverso il quale si illustra, in modo panoramico, tutto l'applicativo (già opportunamente commentato) e si va a fare l'analisi della situazione, con riflessioni e l'illustrazione del metodo logico, a partire dallo _schema ER_;
-* vari file (tra cui: file di managment del repo, la task-list `roadmap.todo`) non necessari all'esecuzione del codice;
-* eseguibile (`main.exe`), così da non dover creare il pacchetto in un secondo momento.
+* la cartella `Risorse` con tutte le risorse (schemi, immagini...);
+* il file `README.md` (che state leggendo già ora), attraverso il quale si presenta il lavoro svolto e si risponde a consegne non strettamente pratiche attinenti al lavoro. In questo file, sono, ad ogni modo, inclusi tutti i file presenti in risorse (salvo se non opportunamente specificato);
+* la cartella `PHP`, con una demo di un programma che implementa i databases appena creati;
+* file vari per la gestione del repo, necessari per clonarlo ed eseguire la demo.
 
-# Analisi del codice
+# Analisi della situazione
+## Cosa è rappresentato nel db?
+Attraverso questo lavoro, andiamo a rappresentare l'intera struttura di un hotel, tenendo conto di due fattori:
+* ciò che riguarda le relazioni con il pubblico (clienti, prenotazioni, stanze);
+* ciò che riguarda la struttura organizzativa di un albergo (pulizie, gestione dei dipendenti, tracciamento profitti).
 
-# Analisi della situazione e considerazioni sul codice
-_Inserire l'analisi della situazione_
+## Tabelle
+Quindi, andiamo a creare le tabelle:
+* clienti:
+attraverso questa tabella raccogliamo il codice fiscale (chiave primaria, ogni codice fiscale identifica in modo univoco ogni persona), nome, cognome, sesso, la data di nascita, il luogo di nascita e il percorso nella rete locale dell'albergo della scansione del documento di identità.
+
+*Il cliente `effettua` almeno una **prenotazione** [associazione  1, N]*
+
+* prenotazioni:
+qui salviamo il codice della prenotazione (chiave primaria), in modo da individuare in modo univoco ogni prenotazione [per far sì che sia univoco, si può creare un criterio che prevede, ad esempio, di concatenare il codice fiscale del cliente con il codice della stanza o, in alternativa, con il riferimento temporale relativo alla data in cui viene effettuata la prenotazione], data di inizio e data di fine della prenotazione, il costo della prenotazione, il mezzo con cui la prenotazione viene saldata (carta o contanti) e dei riferimenti presi da altre tabelle [Foreign keys], come da chi viene affettuata la prenotazione (si riferisce al codice fiscale del cliente), da chi viene lavorata la prenotazione (l'id del dipendente) e la stanza che viene assegnata a quella prenotazione (il codice univoco della stanza);
+
+*Un **dipendente** `prende` in carico e lavora una prenotazione [associazione 1, N]*
+
+* dipendenti:
+torna utile avere una panoramica dell'organico/personale, di cui salviamo l'id del lavoratore [primary key, può corrispondere al numero del badge di accesso o al codice fiscale], il nome, il cognome, l'email qualora bisogni inviare qualche comunicazione, gli estremi temporali (inizio e fine) di ogni turno lavorativo, lo stipendio e il giorno libero nella settimana
+
+*Ogni prenotazione `contiene` una **stanza** [associazione 1, 1]:
+
+* stanze:
+qui raccogliamo il codice univoco della stanza [primary key]
 
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
