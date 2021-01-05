@@ -77,15 +77,15 @@ class Database{
 
     }
 
-    public static function Integer(){
+    public static function Integer($precision=11){
 
-        return 'INTEGER ';
+        return "INTEGER($precision) ";
 
     }
 
-    public static function Float(){
+    public static function Float($precisionTotal,$afterComma){
 
-        return 'FLOAT ';
+        return "FLOAT($precisionTotal,$afterComma) ";
 
     }
     

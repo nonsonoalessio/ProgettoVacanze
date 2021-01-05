@@ -11,15 +11,11 @@ require __DIR__. '/methodsDb/handle.php';
 
 use PHP\App\MethodsDb\Handle;
 
+//file in which there are tables
 $tables=require( __DIR__. '/../config/tables.php' );
-$test = [
-
-    'Name' => 'VARCHAR(100) NOT NULL ',
-    'Surname' => 'VARCHAR(100)',
-
-];
 
 
+//create tables
 foreach ( $tables as $name => $table){
 
     $result=Handle::createTable($name, $table);
