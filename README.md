@@ -1,5 +1,5 @@
 # Progetto Vacanze
-Le immagini si inseriscono con `![alt text](http://url/to/img.png)` (sia tramite link che tramite path locale (path da verificare))
+Le immagini si inseriscono con (sia tramite link che tramite path locale (path da verificare))
 ## Cos'è questo?
 Questo è il repo GitHub su cui è hostato il progetto di **Giura Alessio Donato, Carchia Bruno, Grasso Mario, Serluca Noemi, Trofimets Antonio** [V B S.A. @ __Liceo Pietro Paolo Parazese__, A. S. 2020/21] per le vacanze di Natale, sui databases.
 
@@ -47,8 +47,7 @@ del piano ci serve sapere l'id, che può corrispondere al livello della struttur
 In questa tabella raccogliamo tutto ciò che riguarda il bilancio, mese per mese; assegniamo un id al mese (può essere assegnato magari concatenando il numero del mese con l'anno di riferimento), si annotano entrate, spese, guadagno, il mese e l'anno.
 
 Abbiamo costruito lo schema concettuale (diagramma ER):
-
-link imgur allo schema.
+![modello concettuale](https://imgur.com/a/Ckm8Cjw)
 
 
 
