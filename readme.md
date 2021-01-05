@@ -48,24 +48,34 @@ Abbiamo costruito lo schema concettuale (diagramma ER):
 
 ## Vincoli di integrità
 Abbiamo individuato 10 vincoli di integrità tra i vari attributi:
-* `Prenotazioni.costo_totale_da_pagare > 0`:
+* `V1 : ( Prenotazioni.costo_totale_da_pagare > 0 );`:
 Il costo della prenotazione non può essere minore od uguale di zero [euro], altrimenti l'albergo non avrebbe nemmeno entrate lorde!
 
-* `Dipendenti.stipendio > 0`:
+* `V2 : ( Dipendenti.stipendio > 0 );`:
 Analogamente a quanto avviene per la prenotazione, il salario di un dipendente non può essere minore od uguale a zero [euro], altrimenti sarebbe una prassi simile allo sfruttamento!
 
-* `DATEDIFF(now(), Clienti.data_di_nascita) >= (18*365))`:
+* `V3 : ( DATEDIFF( now(), Clienti.data_di_nascita) >= ( 18 * 365 ) )`: 
 Attraverso la funzione di SQL `DATEDIFF`, calcoliamo la differenza in giorni tra due date; applichiamo questa funzione sulla data di nascita del cliente e verifichiamo che abbia almeno diciotto anni, l'età minima secondo la legislazione italiana per prenotare una camera d'albergo.
 
-* `Prenotazioni.data_fine_prenotazione > Prenotazioni.data_inizio_prenotazione`:
+* `V4 : ( Dipendenti.data_fine_turno > Clienti.data_inizio_turno ))`:
 Ci assicuriamo che la data di fine della prenotazione non sia antecendente alla data di inizio prenotazione; sarebbe impossibile far terminare una prenotazione ancor prima che essa inizi.
 
-* `LOCATE(".pdf", Clienti.immagine_documento_scannerizzato) != 0`:
+* `V5 : ( Prenotazioni.data_fine_prenotazione > Prenotazioni.data_inizio_prenotazione )`:
+Ci assicuriamo che la data di fine della prenotazione non sia antecendente alla data di inizio prenotazione; sarebbe impossibile far terminare una prenotazione ancor prima che essa inizi.
+
+* `V6 : ( LOCATE(‘.pdf’ ,Clienti.immagine_documento_scannerizzato) != 0)`:
 Attraverso questo costrutto, ci assicuriamo che il documento di identità scannerizzato abbia estensione .pdf.
 
-* `Stanze.capienza_massima > 0`:
+* `V7 : ( Stanze.capienza_massima > 0 )`:
 La capienza massima di ciascuna stanza non può essere minore od uguale a zero, altrimenti non ci sarebbe spazio per nessun ospite!
 
-* ``
+* `V8 : (Piani.costo_base_stanza_24h > 0 )`:
+
+
+* `V9 : ( LOCATE(“@’’ ,Dipendenti.email ) != 0) ) `:
+
+
+* `V10 : ( LOCATE(“@’’ ,Clienti.email ) != 0) ) `:
+
 
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
