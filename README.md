@@ -51,5 +51,26 @@ Abbiamo costruito lo schema concettuale (diagramma ER):
 ![modello concettuale](https://i.imgur.com/mnGfvc9.png)
 
 
+## Vincoli di integrità
+Abbiamo individuato 10 vincoli di integrità tra i vari attributi:
+* `prenotazioni.costo_totale_da_pagare > 0`:
+Il costo della prenotazione non può essere minore od uguale di zero [euro], altrimenti l'albergo non avrebbe nemmeno entrate lorde!
+
+* `dipendenti.stipendio > 0`:
+Analogamente a quanto avviene per la prenotazione, il salario di un dipendente non può essere minore od uguale a zero [euro], altrimenti sarebbe una prassi simile allo sfruttamento!
+
+* `DATEDIFF(now(), clienti.data_di_nascita) >= (18*365))`:
+Attraverso la funzione di SQL `DATEDIFF`, calcoliamo la differenza in giorni tra due date; applichiamo questa funzione sulla data di nascita del cliente e verifichiamo che abbia almeno diciotto anni, l'età minima secondo la legislazione italiana per prenotare una camera d'albergo.
+
+* `dipendenti.data_fine_prenotazione > prenotazioni.data_inizio_prenotazione`:
+Ci assicuriamo che la data di fine della prenotazione non sia antecendente alla data di inizio prenotazione; sarebbe impossibile far terminare una prenotazione ancor prima che essa inizi.
+
+* `LOCATE(".pdf", clienti.immagine_documento_scannerizzato) != 0`:
+Attraverso questo costrutto, ci assicuriamo che il documento di identità scannerizzato abbia estensione .pdf.
+
+* `stanze.capienza_massima > 0`:
+La capienza massima di ciascuna stanza non può essere minore od uguale a zero, altrimenti non ci sarebbe spazio per nessun ospite!
+
+* ``
 
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
