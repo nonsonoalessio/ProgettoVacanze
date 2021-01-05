@@ -47,7 +47,7 @@ del piano ci serve sapere l'id, che può corrispondere al livello della struttur
 In questa tabella raccogliamo tutto ciò che riguarda il bilancio, mese per mese; assegniamo un id al mese (può essere assegnato magari concatenando il numero del mese con l'anno di riferimento), si annotano entrate, spese, guadagno, il mese e l'anno.
 
 Abbiamo costruito lo schema concettuale (diagramma ER):
-![modello concettuale](<blockquote class="imgur-embed-pub" lang="en" data-id="a/Ckm8Cjw" data-context="false" ><a href="//imgur.com/a/Ckm8Cjw"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>)
+![modello concettuale](https://i.imgur.com/mnGfvc9.png)
 
 
 
