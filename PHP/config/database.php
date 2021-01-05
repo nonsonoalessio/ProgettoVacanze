@@ -67,7 +67,7 @@ class Database{
         }
         $stringToReturn[-1] =')';
      
-
+      
         return $stringToReturn;
     }
 
@@ -108,6 +108,32 @@ class Database{
 
         return "REFERENCES $tableTo($attributeTo)";
 
+
+    }
+
+
+    public static function CheckDateDiff($date1,$date2){
+
+        if( is_int($date2) ){
+
+            //in questo caso abbiamo il numero di anni e basta convertirlo
+            $date2 *= 365;
+            return "CHECK ( DATEDIFF('". date('Y-m-d') . "' ,$date1) > $date2 ) ";
+
+        }
+
+        return "CHECK($date1>$date2) ";
+
+    }
+
+    public static function CheckIfIn($stringToFind,$stringWhereFind){
+
+        return "CHECK ( LOCATE('$stringToFind',$stringWhereFind) != 0 )";
+
+    }
+    public static function CheckNumberPositive($number){
+
+        return "CHECK($number>0) ";
 
     }
 
