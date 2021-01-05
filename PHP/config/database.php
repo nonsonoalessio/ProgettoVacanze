@@ -118,7 +118,7 @@ class Database{
 
             //in questo caso abbiamo il numero di anni e basta convertirlo
             $date2 *= 365;
-            return "CHECK ( DATEDIFF('". date('Y-m-d') . "' ,$date1) > $date2 ) ";
+            return "CHECK ( DATEDIFF('". date('Y-m-d') . "' ,$date1) >= $date2 ) ";
 
         }
 

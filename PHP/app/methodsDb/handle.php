@@ -10,36 +10,23 @@ class Handle extends Connection{
 
     use SubFunctionsDatabase;
 
-    // 'nome_colonna' => 'attributi vari'
-    public static function createTable($nameTable ,Array $nameColumnAndAttribute){
+    
+    public static function createTables(){
+
+          //file in which there are tables
+            $tables=require( __DIR__. '/../../config/tables.php' );
 
 
-        //check if the table is already present
-        if( !self::tableIsAlreadyPresent($nameTable) ) return new Exception('Table is already present');
+            //create tables
+            foreach ( $tables as $name => $table){
 
+                 $result=Handle::createTable($name, $table);
 
-        //starting to create the query
-        $query = " CREATE TABLE $nameTable( ";
+                if( $result ) echo $result;
 
-        
-        foreach ( $nameColumnAndAttribute as $name => $attribute ){
-
-            $query .= "$name " . " $attribute,";
-            
-        }
-       
-        //to override the last ' ; '
-        $query[-1] = ');';
-        
-
-        
-
-        
-        return self::executeQuery($query);
+            }
 
     }
-
-
     
 
     public static function executeQuery($query){

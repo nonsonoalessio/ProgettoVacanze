@@ -16,8 +16,24 @@ class Connection{
         try{
 
             //connessione al db
-            self::$database = new PDO("mysql:host=" . Database::getHostDb().';dbname=' . Database::getNameDb() , Database::getUsernameDb() , Database::getPasswordDb());
-            self::$database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            self::$database = new PDO("mysql:host=" . Database::getHostDb(), Database::getUsernameDb() , Database::getPasswordDb());
+            
+            //get databases on server
+            $stmt = self::$database->prepare("show databases");
+            $result = $stmt->execute(array("i"=>456));
+            foreach ( $stmt->fetchAll() as $dbName ){
+
+               
+                if($dbName['Database'] == Database::getNameDb() ){
+
+                    self::$database->query('use ' . Database::getNameDb());
+                    return self::$database;
+                }
+
+            }
+
+            self::$database->query('CREATE DATABASE ' . Database::getNameDb());
+            self::$database->query('use '. Database::getNameDb());
 
             return self::$database;
 

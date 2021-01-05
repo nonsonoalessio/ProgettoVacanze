@@ -11,18 +11,7 @@ require __DIR__. '/methodsDb/connection.php';
 require __DIR__. '/methodsDb/handle.php';
 
 
+   echo Handle::createTables();
 
-//file in which there are tables
-$tables=require( __DIR__. '/../config/tables.php' );
-
-
-//create tables
-foreach ( $tables as $name => $table){
-
-    $result=Handle::createTable($name, $table);
-
-    if( $result ) echo $result;
-
-}
 
 ?>

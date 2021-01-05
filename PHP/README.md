@@ -40,4 +40,15 @@ Di seguito un estratto :
     ],  
 ```
 
-## 
+## Funzioni Statiche del Database
+Come possiamo notare tutte gli attributi delle varie colonne vengono specificate mediante la classe `DB` , la quale ritorna gli attributi desiderati.
+Notiamo per esempio la funzione **CheckIfIn** , la quale specifica un **vincolo esplicito** per la colonna/tupla : deve contenere il simbolo @ per essere valido.
+
+## Mind-set
+
+Nel momento in cui viene avviato il file main.js e l'utente ha creato manualmente il file .env attingendo dal file .env.example la richiesta viene spedita al file `app.php` il quale avvia la creazione delle tabelle: 
+* La funzione statica prende in esame le tabelle create nel `config` e vengono definite come stringhe
+* Questa stringa viene eseguita da `executeQuery` che provvede a ottenere un pointer per la connessione al db
+* La connessione avviene mediante la tecnologia `PDO` che ottiene tutti i database sul server e cerca quello specificato dall'utente nel file .env
+* Semmai non ci fosse allora ne crea uno tutto suo e rimanda il pointer alla funzione `executeQuery` la quale aziona la query e crea le tabelle
+
