@@ -24,15 +24,18 @@ La restante parte del progetto è puro codice scritto a mano.
 E' stata la **parola chiave** del nostro progetto, il nostro file principale utilizza una sola stringa , il secondo file di decentramento poco più di 10.
 Come in un progetto o in un framework dalle grandi ambizioni abbiamo ragionato rendendo più pulito il nostro codice dividendolo in classi e sottoclassi ( è stata utilizzato PDO difatti per la connesione al database). Un esempio è appunto la cartella `config/tables.php` in cui mediante funzioni statiche sono state implementate le tabelle, ottenendo un codice chiaro e leggibile ma allo stesso tempo sicuro.
 Di seguito un estratto :
-` 'clienti' => [ `
-            `'nome' =>  DB::Varchar() . DB::NotNull(), `
-            `'cognome' => DB::Varchar() . DB::NotNull(),`
-            `'data_di_nascita' => DB::Date() . DB::NotNull() . DB::CheckDateDiff('data_di_nascita',18),`
-            `'codiceFiscale' => DB::Varchar() . DB::PrimaryKey(),`
-            `'luogoNascita' => DB::Varchar() . DB::NotNull(),`
-            `'sesso' => DB::Enum(['m' , 'f']) . DB::NotNull(),`
-            `'numero_telefono' => DB::Integer(10),`
-            `'email' => DB::Varchar(150) . DB::CheckIfIn('@','email'),`
-            `'immagine_documento_scannerizzato' => DB::Varchar(200) . DB::NotNull() . DB::CheckIfIn('.pdf','immagine_documento_scannerizzato')`
+```php
+ 'clienti' => [
 
-  `  ],`
+            'nome' =>  DB::Varchar() . DB::NotNull(), 
+            'cognome' => DB::Varchar() . DB::NotNull(),
+            'data_di_nascita' => DB::Date() . DB::NotNull() . DB::CheckDateDiff('data_di_nascita',18),
+            'codiceFiscale' => DB::Varchar() . DB::PrimaryKey(),
+            'luogoNascita' => DB::Varchar() . DB::NotNull(),
+            'sesso' => DB::Enum(['m' , 'f']) . DB::NotNull(),
+            'numero_telefono' => DB::Integer(10),
+            'email' => DB::Varchar(150) . DB::CheckIfIn('@','email'),
+            'immagine_documento_scannerizzato' => DB::Varchar(200) . DB::NotNull() . DB::CheckIfIn('.pdf','immagine_documento_scannerizzato')
+
+    ],  
+```
