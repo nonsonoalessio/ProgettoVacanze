@@ -22,7 +22,7 @@ La restante parte del progetto è puro codice scritto a mano.
 
 ## Decentramento
 E' stata la **parola chiave** del nostro progetto, il nostro file principale utilizza una sola stringa , il secondo file di decentramento poco più di 10.
-Come in un progetto o in un framework dalle grandi ambizioni abbiamo ragionato rendendo più pulito il nostro codice dividendolo in classi e sottoclassi ( è stata utilizzato PDO difatti per la connesione al database). Un esempio è appunto la cartella `config/tables.php` in cui mediante funzioni statiche sono state implementate le tabelle, ottenendo un codice chiaro e leggibile ma allo stesso tempo sicuro.
+Come in un progetto o in un framework dalle grandi ambizioni abbiamo ragionato rendendo più pulito il nostro codice dividendolo in classi e sottoclassi ( è stata utilizzato PDO difatti per la connesione al database). Un esempio è appunto la cartella `config/tables.php` in cui , mediante funzioni statiche , sono state implementate le tabelle, ottenendo un codice chiaro e leggibile ma allo stesso tempo sicuro.
 Di seguito un estratto :
 ```php
  'clienti' => [
@@ -39,3 +39,5 @@ Di seguito un estratto :
 
     ],  
 ```
+
+## 

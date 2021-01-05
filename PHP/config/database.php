@@ -89,9 +89,9 @@ class Database{
 
     }
     
-    public static function Timestamp(){
+    public static function Datetime(){
 
-        return 'TIMESTAMP ';
+        return 'DATETIME ';
 
     }
 

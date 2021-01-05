@@ -39,6 +39,9 @@ class Handle extends Connection{
 
     }
 
+
+    
+
     public static function executeQuery($query){
 
         try{
