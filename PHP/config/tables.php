@@ -12,7 +12,7 @@ return [
             'codiceFiscale' => DB::Varchar() . DB::PrimaryKey(),
             'luogoNascita' => DB::Varchar() . DB::NotNull(),
             'sesso' => DB::Enum(['m' , 'f']) . DB::NotNull(),
-            'numero_telefono' => DB::Integer(10),
+            'numero_telefono' => DB::Integer(9),
             'email' => DB::Varchar(150) . DB::CheckIfIn('@','email'),
             'immagine_documento_scannerizzato' => DB::Varchar(200) . DB::NotNull() . DB::CheckIfIn('.pdf','immagine_documento_scannerizzato')
 
