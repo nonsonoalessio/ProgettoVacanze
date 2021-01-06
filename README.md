@@ -99,15 +99,17 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 
 *Tabella Prenotazioni*:
 * 
-
+## Modello logico e fisico : Grafico
 ![generati da phpmyadmin](https://i.imgur.com/rJpETqQ.png)
 Per mezzo di PhpMyAdmin abbiamo realizzato un modello unico che racchiuda sia le informazioni del modello fisico che logico. Difatti abbiamo specificato le relazioni tra le varie tabelle per mezzo di **Foreign Key** e di **Primary Key** e la **tipizzazione dei dati** , dando per implicito il fatto che siano tutti richiesti. 
+## Modello logico e fisico : Descritto
 *Modello Logico* è il seguente:
 * Clienti ( codiceFiscale ,nome, cognome, data_di_nascita,luogoNascita, sesso , immagine_documento_scannerizzato, numero_telefono,email )
 * Piani ( id , costo_base_stanza24h , giorno_pulizie )
-* Stanze ( codiceStanza , capienza_massima , piano ) ( FK legata a id Piano )
+* Stanze ( codiceStanza , capienza_massima ,**piano** )
+    * FK : piano → Piani → id
 * Dipendenti ( id , stipendio , giorno_settimanale_festivo , nome , cognome , email ,data_inizio_turno, data_fine_turno )
-* Prenotazioni ( codicePrenotazione , effettuataDa , codiceStanza, data_inizio_prenotazone , data_fine_prenotazione , costo_totale_da_pagare , prenotazionePresaDa , mezzo_di_pagamento ) 
+* Prenotazioni ( codicePrenotazione , **effettuataDa** , **codiceStanza**, data_inizio_prenotazone , data_fine_prenotazione , costo_totale_da_pagare , **prenotazionePresaDa** , mezzo_di_pagamento ) 
      *  FK : effettuataDa → Clienti → codiceFiscale ;
      *  FK : codiceStanza → Stanze → codiceStanza; 
      *  FK : prenotazionePresaDa  → Dipendenti → id;
