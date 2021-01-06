@@ -82,6 +82,7 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 
 ## Tipi dati usati
 *Tabella Clienti*:
+* `codiceFiscale` è una sequenza alfanumerica: la rappresentiamo mediante il tipo `VARCHAR` di lunghezza 16 caratteri, esattamente tanti quanti quelli richiesti da un codice fiscale;
 * `nome`, `cognome`, `luogoNascita`, `email` sono campi composti da una sequenza alfanumerica: scegliamo il tipo dato `VARCHAR` con una lunghezza di 100 caratteri, in quanto sono dati non eccessivamente lunghi;
 * `immagine_documento_scannerizzato` è il percorso di un file che, analogamente ai campi sopra citati, è rappresentato da una sequenza di caratteri alfa-simbolico-numerica; anche in questo caso, si può ricorrere al tipo `VARCHAR` ma, dal momento in cui il path di un file può essere piuttosto lungo, aumentiamo la lunghezza a 250 caratteri, il massimo per questo tipo dato in SQL; 
 * `data_di_nascita` è una data, che può essere rappresentata in SQL con il tipo dato `DATE` (ci consente di raccogliere in un unico attributo giorno, mese ed anno);
@@ -98,7 +99,7 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 * `capienza_massima` può essere rappresentato da un numero intero, in quanto una persona può essere contenuta interamente o, alternativamente, per nulla in una camera; il tipo dato scelto è quindi `INTEGER`;
 
 *Tabella Prenotazioni*:
-* 
+* codicePrenotazione
 
 ![generati da phpmyadmin](https://i.imgur.com/rJpETqQ.png)
 Per mezzo di PhpMyAdmin abbiamo realizzato un modello unico che racchiuda sia le informazioni del modello fisico che logico. Difatti abbiamo specificato le relazioni tra le varie tabelle per mezzo di **Foreign Key** e di **Primary Key** e la **tipizzazione dei dati** , dando per implicito il fatto che siano tutti richiesti. 
