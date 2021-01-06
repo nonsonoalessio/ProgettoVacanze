@@ -12,8 +12,10 @@ Su questo repo vi sono diversi file, tra cui:
 # Analisi della situazione
 ## Cosa è rappresentato nel db?
 Attraverso questo lavoro, andiamo a rappresentare l'intera struttura di un hotel, tenendo conto di due fattori:
-* ciò che riguarda le relazioni con il pubblico (clienti, prenotazioni, stanze);
-* ciò che riguarda la struttura organizzativa di un albergo (pulizie, gestione dei dipendenti, tracciamento profitti).
+* ciò che riguarda le relazioni con il pubblico (clienti, prenotazioni);
+* ciò che riguarda la struttura organizzativa di un albergo (gestione dei dipendenti, stanze, piani).
+Mediante questo database, andiamo a salvare i dati necessari ogni cliente (generalità anagrafiche e recapiti) che effettua una prenotazione, di cui andiamo a salvare tutti gli estremi (il codice, da chi è stata effettuata e quando, la durata del pernottamento, quale stanza viene assegnata); analogamente, ci conviene raccogliere i dati dei dipendenti per avere un quadro completo dell'organico (generalità, salario, informazioni sui tuni lavorativi, recapiti) e ciò che è affine alle stanze, come ad esempio dettagli su quando viene pulita settimanalmente, se è occupata o meno e da chi, su quale piano si trova, qual è la tariffa di base per quella stanza in base agli optional presenti al piano.
+Attraverso questo database intendiamo, quindi, semplificare la gestione di un albergo per agevolare la gestione delle prenotazioni.
 
 ## Tabelle
 Quindi, andiamo a creare le tabelle:
@@ -38,7 +40,7 @@ qui raccogliamo il codice univoco della stanza [primary key], la capienza della 
 *Ogni **piano** `ha` almeno una stanza [associazione 1, N]*:
 
 * Piani:
-del piano ci serve sapere l'id, che può corrispondere al livello della struttura, costoBaseStanza24??? e il giorno della settimana in cui si puliscono tutte le camere del piano abitualmente
+del piano ci serve sapere l'id, che può corrispondere al livello della struttura, la tariffa di base della stanza in base agli optional presenti su quel piano e il giorno della settimana in cui si puliscono tutte le camere del piano abitualmente
 
 Abbiamo costruito lo schema concettuale (diagramma ER):
 
