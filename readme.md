@@ -1,5 +1,4 @@
 # Progetto Vacanze
-Le immagini si inseriscono con (sia tramite link che tramite path locale (path da verificare))
 ## Cos'è questo?
 Questo è il repo GitHub su cui è hostato il progetto di **Giura Alessio Donato, Carchia Bruno, Grasso Mario, Serluca Noemi, Trofimets Antonio** [V B S.A. @ __Liceo Pietro Paolo Parazese__, A. S. 2020/21] per le vacanze di Natale, sui databases.
 
@@ -127,7 +126,12 @@ Per mezzo di PhpMyAdmin abbiamo realizzato un modello unico che racchiuda sia le
      *  FK : prenotazionePresaDa  → Dipendenti → id;
 
 *Modello Fisico* è il seguente : 
-* [Clicca per aprirlo](https://docs.google.com/document/d/1RtvWrxvSnwynyRu9r80vmf9DQGJqRmg0ZO0YQxk06R4/edit?usp=sharing)
+[Clicca per aprirlo.](https://docs.google.com/document/d/1RtvWrxvSnwynyRu9r80vmf9DQGJqRmg0ZO0YQxk06R4/edit?usp=sharing)
+
+# Creazione del database con PHPMyAdmin:
+![phpmyadmin](https://i.imgur.com/LF7JQ7s.png)
+
+
 
 
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
