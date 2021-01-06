@@ -89,11 +89,16 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 * `sesso`: una persona (non tenendo conto delle definizione non-binarie dei sessi) può essere di sesso maschile o femmile: possiamo scegliere quindi il tipo dato `ENUM` che ci consente di inserire un vincolo implicito: questo campo può essere riempito solo con il valore *m* o *f*-
 
 *Tabella Piani*:
-* `id` è un identificatore universale utilizzato formalmente per rendere univoco ogni record;
+* `id` è un identificatore universale utilizzato formalmente per rendere univoco ogni record; si tratta di un `INTEGER` che viene incrementato automaticamente di riga in riga, di 1 unità
 * `costo_base_stanza_24`: la tariffa di base di una stanza non deve, necessariamente, corrispondere ad un importo intero e, per questo, ricorriamo al tipo `FLOAT`; in questo caso, abbiamo a disposizione, eventualemente, 7 cifre intere e 3 cifre decimali, il che ci consentirebbe di fare eventuali dovuti arrotondamenti;
-* `giorno_pulizie` è il singolo giorno della settimana in cui viene effettuata la pulizia di tutte le camere, occupate o non, in tutto il piano; dal momento in cui si tratta di un singolo giorno della settimana
-* `id` 
-* ``
+* `giorno_pulizie` è il singolo giorno della settimana in cui viene effettuata la pulizia di tutte le camere, occupate o non, in tutto il piano; dal momento in cui si tratta di un singolo giorno della settimana, possiamo scegliere il tipo `ENUM`: il campo potrà essere riempito con il nome del giorno della settimana desiderato.
+
+*Taabella Stanze*:
+* `codiceStanza` è un `INTEGER` che viene incrementato di riga in riga; ha funzione analoga a `Piani.id`;
+* `capienza_massima` può essere rappresentato da un numero intero, in quanto una persona può essere contenuta interamente o, alternativamente, per nulla in una camera; il tipo dato scelto è quindi `INTEGER`;
+
+*Tabella Prenotazioni*:
+* 
 
 ![generati da phpmyadmin](https://i.imgur.com/rJpETqQ.png)
 
