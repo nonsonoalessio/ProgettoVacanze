@@ -102,7 +102,7 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 * ``codicePrenotazione` lo rappresentiamo mediante un numero intero e scegliamo il tipo `INTEGER`;
 * `data_inzio_prenotazione`
 
-
+## Modello logico e fisico : Grafico
 ![generati da phpmyadmin](https://i.imgur.com/rJpETqQ.png)
 Per mezzo di PhpMyAdmin abbiamo realizzato un modello unico che racchiuda sia le informazioni del modello fisico che logico. Difatti abbiamo specificato le relazioni tra le varie tabelle per mezzo di **Foreign Key** e di **Primary Key** e la **tipizzazione dei dati** , dando per implicito il fatto che siano tutti richiesti. 
 ## Modello logico e fisico : Descritto
