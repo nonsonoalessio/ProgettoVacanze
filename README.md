@@ -90,6 +90,7 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 
 *Tabella Piani*:
 * `id` ???
-* ``
+* `costo_base_stanza_24`: la tariffa di base di una stanza non deve, necessariamente, corrispondere ad un importo intero e, per questo, ricorriamo al tipo `FLOAT`; in questo caso, abbiamo a disposizione, eventualemente, 7 cifre intere e 3 cifre decimali, il che ci consentirebbe di fare eventuali dovuti arrotondamenti;
+* `giorno_pulizie` è il singolo giorno della settimana in cui viene effettuata la pulizia di tutte le camere, occupate o non, in tutto il piano
 
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
