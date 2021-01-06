@@ -116,6 +116,9 @@ Per mezzo di PhpMyAdmin abbiamo realizzato un modello unico che racchiuda sia le
      *  FK : effettuataDa → Clienti → codiceFiscale ;
      *  FK : codiceStanza → Stanze → codiceStanza; 
      *  FK : prenotazionePresaDa  → Dipendenti → id;
+
 *Modello Fisico* è il seguente : 
 * [Clicca per aprirlo](https://docs.google.com/document/d/1RtvWrxvSnwynyRu9r80vmf9DQGJqRmg0ZO0YQxk06R4/edit?usp=sharing)
+
+
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
