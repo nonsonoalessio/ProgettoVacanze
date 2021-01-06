@@ -104,9 +104,6 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 * `costo_totale_da_pagare` non necessariamente è intera come somma, quindi optiamo per il tipo `FLOAT`, con 8 cifre intere e due decimali;
 * `mezzo_di_pagamento` può essere carta o contante ed optiamo per il tipo `ENUM` con le due possibilità appena citate.
 
-<<<<<<< Updated upstream
-## Modello logico e fisico : Grafico
-=======
 *Tabella Dipendenti*:
 * `nome`, `cognome`, `email`, `numero_telefono` seguono lo stesso dictat dei rispettivi nella tabella `Clienti`: scegliamo il tipo `VARCHAR` con lunghezza 100 per `nome` e `cognome`, `VARCHAR` con lunghezza 150 per `email`, `INTEGER` con OdG 9 per `numero_telefono`;
 * `data_inizio_turno` e `data_fine_turno` sono date di cui ci interessa salvare anche l'orario e scegliamo il tipo `DATETIME`;
@@ -115,7 +112,6 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 
 
 ## Modello fisico e logico
->>>>>>> Stashed changes
 ![generati da phpmyadmin](https://i.imgur.com/rJpETqQ.png)
 Per mezzo di PhpMyAdmin abbiamo realizzato un modello unico che racchiuda sia le informazioni del modello fisico che logico. Difatti abbiamo specificato le relazioni tra le varie tabelle per mezzo di **Foreign Key** e di **Primary Key** e la **tipizzazione dei dati** , dando per implicito il fatto che siano tutti richiesti. 
 ### Descrizione
