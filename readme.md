@@ -86,6 +86,10 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 * `immagine_documento_scannerizzato` è il percorso di un file che, analogamente ai campi sopra citati, è rappresentato da una sequenza di caratteri alfa-simbolico-numerica; anche in questo caso, si può ricorrere al tipo `VARCHAR` ma, dal momento in cui il path di un file può essere piuttosto lungo, aumentiamo la lunghezza a 250 caratteri, il massimo per questo tipo dato in SQL; 
 * `data_di_nascita` è una data, che può essere rappresentata in SQL con il tipo dato `DATE` (ci consente di raccogliere in un unico attributo giorno, mese ed anno);
 * `numero_telefono` è il recapito telefonico, cellulare, di un cliente; possiamo farlo rassomigliare ad un numero intero di OdG 10^9 (quindi con 10 cifre totali): scegliamo quindi il tipo `INTEGER` di OdG 9;
-* `sesso`: una persona (non tenendo conto delle definizione non-binarie dei sessi)
+* `sesso`: una persona (non tenendo conto delle definizione non-binarie dei sessi) può essere di sesso maschile o femmile: possiamo scegliere quindi il tipo dato `ENUM` che ci consente di inserire un vincolo implicito: questo campo può essere riempito solo con il valore *m* o *f*-
+
+*Tabella Piani*:
+* `id` ???
+* ``
 
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
