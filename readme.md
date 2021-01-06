@@ -4,8 +4,8 @@ Questo è il repo GitHub su cui è hostato il progetto di **Giura Alessio Donato
 
 ## Cosa contiene?
 Su questo repo vi sono diversi file, tra cui:
-* la cartella `Risorse` con tutte le risorse (schemi, immagini...);
-* il file `README.md` (che state leggendo già ora), attraverso il quale si presenta il lavoro svolto e si risponde a consegne non strettamente pratiche attinenti al lavoro. In questo file, sono, ad ogni modo, inclusi tutti i file presenti in risorse (salvo se non opportunamente specificato);
+* la cartella `Risorse` con tutte le risorse (le immagini incorporate in questo README.md, i modelli fisico e logici in formato pdf, queries SQL per la creazione di tabelle in PHPMyAdmin);
+* il file `README.md` (che state leggendo già ora), attraverso il quale si presenta il lavoro svolto e si risponde alle consegne del lavoro;
 * la cartella `PHP`, con una demo di un programma che implementa i databases appena creati;
 * file vari per la gestione del repo, necessari per clonarlo ed eseguire la demo.
 
@@ -110,7 +110,7 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 * `stipendio` non è necessariamente una cifra intera e la rappresentiamo mediante un attributo di tipo `FLOAT` con 8 cifre intere e 2 decimali.
 
 
-## Modello fisico e logico
+# Modello fisico e logico
 ![generati da phpmyadmin](https://i.imgur.com/rJpETqQ.png)
 Per mezzo di PhpMyAdmin abbiamo realizzato un modello unico che racchiuda sia le informazioni del modello fisico che logico. Difatti abbiamo specificato le relazioni tra le varie tabelle per mezzo di **Foreign Key** e di **Primary Key** e la **tipizzazione dei dati** , dando per implicito il fatto che siano tutti richiesti. 
 ### Descrizione
@@ -125,13 +125,17 @@ Per mezzo di PhpMyAdmin abbiamo realizzato un modello unico che racchiuda sia le
      *  FK : codiceStanza → Stanze → codiceStanza; 
      *  FK : prenotazionePresaDa  → Dipendenti → id;
 
-*Modello Fisico* è il seguente : 
-[Clicca per aprirlo.](https://docs.google.com/document/d/1RtvWrxvSnwynyRu9r80vmf9DQGJqRmg0ZO0YQxk06R4/edit?usp=sharing)
+*Modello Fisico* è il seguente: 
+[Click per aprire.](https://docs.google.com/document/d/1RtvWrxvSnwynyRu9r80vmf9DQGJqRmg0ZO0YQxk06R4/edit?usp=sharing)
 
-# Creazione del database con PHPMyAdmin:
+*Modello Logico* è il seguente:
+[Click per aprire.](https://docs.google.com/document/d/1bXvJ-hhxGYCI4qzMHaf7Hb1Cin-xGO2dTw-dzgIYeUw/edit?usp=sharing)
+## Creazione del database con PHPMyAdmin
 ![phpmyadmin](https://i.imgur.com/LF7JQ7s.png)
 
 
+## Punto bonus: realizzazione database mediamente codice PHP
+In aggiunta alla tabella creata manualmente mediante queries SQL su PHPMyAdmin, il nostro gruppo ha deciso di implementare un programma PHP in grado di collegarsi in remoto al database e creare le tabelle o modificarle qualora esistano già. Tale codice è nella cartella  `PHP` del repository e ci consente di ottenere un risultato del tutto identico alla realizzazione mediante queries SQL da XAMPP.
 
 
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
