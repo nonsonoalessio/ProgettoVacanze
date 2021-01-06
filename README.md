@@ -48,6 +48,7 @@ Abbiamo costruito lo schema concettuale (diagramma ER):
 
 ## Vincoli di integrità
 Abbiamo individuato 10 vincoli di integrità tra i vari attributi:
+*N.B: tutti gli attribuiti posseggono il vincolo implicito `NOT NULL`, in quanto abbiamo ritenuto che nessun campo della tabella possa assumere un valore nullo.*
 * `V1 : ( Prenotazioni.costo_totale_da_pagare > 0 );`:
 Il costo della prenotazione non può essere minore od uguale di zero [euro], altrimenti l'albergo non avrebbe nemmeno entrate lorde!
 
@@ -55,7 +56,7 @@ Il costo della prenotazione non può essere minore od uguale di zero [euro], alt
 Analogamente a quanto avviene per la prenotazione, il salario di un dipendente non può essere minore od uguale a zero [euro], altrimenti sarebbe una prassi simile allo sfruttamento!
 
 * `V3 : ( DATEDIFF( now(), Clienti.data_di_nascita) >= ( 18 * 365 ) )`: 
-Attraverso la funzione di SQL `DATEDIFF`, calcoliamo la differenza in giorni tra due date; applichiamo questa funzione sulla data di nascita del cliente e verifichiamo che abbia almeno diciotto anni, l'età minima secondo la legislazione italiana per prenotare una camera d'albergo.
+Attraverso la funzione di SQL `DATEDIFF()`, calcoliamo la differenza in giorni tra due date; applichiamo questa funzione sulla data di nascita del cliente e verifichiamo che abbia almeno diciotto anni, l'età minima secondo la legislazione italiana per prenotare una camera d'albergo.
 
 * `V4 : ( Dipendenti.data_fine_turno > Clienti.data_inizio_turno ))`:
 Ci assicuriamo che la data di fine della prenotazione non sia antecendente alla data di inizio prenotazione; sarebbe impossibile far terminare una prenotazione ancor prima che essa inizi.
@@ -70,12 +71,15 @@ Attraverso questo costrutto, ci assicuriamo che il documento di identità scanne
 La capienza massima di ciascuna stanza non può essere minore od uguale a zero, altrimenti non ci sarebbe spazio per nessun ospite!
 
 * `V8 : (Piani.costo_base_stanza_24h > 0 )`:
+Il costo di base (anche tariffa) di una stanza, a prescindere dagli optional presenti sul piano non può, in ogni modo, essere uguale o minore di zero [euro], altrimenti nessuna stanza frutterebbe entrate lorde all'albergo!
 
+* `V9 : ( LOCATE("@", Dipendenti.email ) != 0) ) `:
+Adoperando la funzione `LOCATE()`, possiamo effettuare un controllo all'interno dell'email che ci consente di trovare il carattere '@', per assicurarci che l'indirizzo email abbia un formato corretto.
+Questo vincolo si riferisce all'attributo `email` della tabella `Dipendente`.
 
-* `V9 : ( LOCATE(“@’’ ,Dipendenti.email ) != 0) ) `:
+* `V10 : ( LOCATE("@", Clienti.email ) != 0) ) `:
+Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo stesso controllo per l'attributo `email` ma per i record nella tabella `Clienti` questa volta.
 
-
-* `V10 : ( LOCATE(“@’’ ,Clienti.email ) != 0) ) `:
-
+## Tipi dato adoperati
 
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
