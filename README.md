@@ -130,15 +130,12 @@ Per mezzo di PhpMyAdmin abbiamo realizzato un modello unico che racchiuda sia le
 *Modello Fisico* è il seguente: 
 [Click per aprire.](https://docs.google.com/document/d/1RtvWrxvSnwynyRu9r80vmf9DQGJqRmg0ZO0YQxk06R4/edit?usp=sharing)
 
-*Modello Logico* è il seguente:
-[Click per aprire.](https://docs.google.com/document/d/1bXvJ-hhxGYCI4qzMHaf7Hb1Cin-xGO2dTw-dzgIYeUw/edit?usp=sharing)
-
 
 ## Creazione del database con PHPMyAdmin
 ![phpmyadmin](https://i.imgur.com/LF7JQ7s.png)
 
 
-## Punto bonus: realizzazione database mediamente codice PHP
+## Punto bonus: realizzazione database mediante codice PHP
 In aggiunta alla tabella creata manualmente mediante queries SQL su PHPMyAdmin (presente in `Risorse/hotel.sql`), Carchia e Giura hanno implementato un programma PHP in grado di collegarsi in remoto al database e creare le tabelle o modificarle qualora esistano già. Tale codice è nella cartella  `PHP` del repository e ci consente di ottenere un risultato del tutto identico alla realizzazione mediante queries SQL da XAMPP.
 
 
