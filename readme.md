@@ -98,7 +98,7 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 * `capienza_massima` può essere rappresentato da un numero intero, in quanto una persona può essere contenuta interamente o, alternativamente, per nulla in una camera; il tipo dato scelto è quindi `INTEGER`.
 
 *Tabella Prenotazioni*:
-* ``codicePrenotazione` lo rappresentiamo mediante un numero intero e scegliamo il tipo `INTEGER`;
+* `codicePrenotazione` lo rappresentiamo mediante un numero intero e scegliamo il tipo `INTEGER`;
 * `data_inzio_prenotazione` e `data_fine_prenotazione` sono entrambi due date, di cui andiamo andare a raccogliere anche l'ora per check-in e il check-out e scegliamo il tipo `DATETIME`;
 * `costo_totale_da_pagare` non necessariamente è intera come somma, quindi optiamo per il tipo `FLOAT`, con 8 cifre intere e due decimali;
 * `mezzo_di_pagamento` può essere carta o contante ed optiamo per il tipo `ENUM` con le due possibilità appena citate.
