@@ -74,11 +74,11 @@ La capienza massima di ciascuna stanza non può essere minore od uguale a zero, 
 * `V8 : (Piani.costo_base_stanza_24h > 0 )`:
 Il costo di base (anche tariffa) di una stanza, a prescindere dagli optional presenti sul piano non può, in ogni modo, essere uguale o minore di zero [euro], altrimenti nessuna stanza frutterebbe entrate lorde all'albergo!
 
-* `V9 : ( LOCATE("@", Dipendenti.email ) != 0) ) `:
+* `V9 : ( LOCATE("@", Dipendenti.email ) != 0 ) `:
 Adoperando la funzione `LOCATE()`, possiamo effettuare un controllo all'interno dell'email che ci consente di trovare il carattere '@', per assicurarci che l'indirizzo email abbia un formato corretto.
 Questo vincolo si riferisce all'attributo `email` della tabella `Dipendente`.
 
-* `V10 : ( LOCATE("@", Clienti.email ) != 0) ) `:
+* `V10 : ( LOCATE("@", Clienti.email ) != 0 ) `:
 Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo stesso controllo per l'attributo `email` ma per i record nella tabella `Clienti` questa volta.
 
 ## Tipi dati usati
@@ -95,7 +95,7 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 * `costo_base_stanza_24`: la tariffa di base di una stanza non deve, necessariamente, corrispondere ad un importo intero e, per questo, ricorriamo al tipo `FLOAT`; in questo caso, abbiamo a disposizione, eventualemente, 7 cifre intere e 3 cifre decimali, il che ci consentirebbe di fare eventuali dovuti arrotondamenti;
 * `giorno_pulizie` è il singolo giorno della settimana in cui viene effettuata la pulizia di tutte le camere, occupate o non, in tutto il piano; dal momento in cui si tratta di un singolo giorno della settimana, possiamo scegliere il tipo `ENUM`: il campo potrà essere riempito con il nome del giorno della settimana desiderato.
 
-*Taabella Stanze*:
+*Tabella Stanze*:
 * `codiceStanza` è un `INTEGER` che viene incrementato di riga in riga; ha funzione analoga a `Piani.id`;
 * `capienza_massima` può essere rappresentato da un numero intero, in quanto una persona può essere contenuta interamente o, alternativamente, per nulla in una camera; il tipo dato scelto è quindi `INTEGER`.
 
