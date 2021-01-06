@@ -89,10 +89,13 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 * `sesso`: una persona (non tenendo conto delle definizione non-binarie dei sessi) può essere di sesso maschile o femmile: possiamo scegliere quindi il tipo dato `ENUM` che ci consente di inserire un vincolo implicito: questo campo può essere riempito solo con il valore *m* o *f*-
 
 *Tabella Piani*:
-* `id` ???
+* `id` è un identificatore universale utilizzato formalmente per rendere univoco ogni record;
 * `costo_base_stanza_24`: la tariffa di base di una stanza non deve, necessariamente, corrispondere ad un importo intero e, per questo, ricorriamo al tipo `FLOAT`; in questo caso, abbiamo a disposizione, eventualemente, 7 cifre intere e 3 cifre decimali, il che ci consentirebbe di fare eventuali dovuti arrotondamenti;
-* `giorno_pulizie` è il singolo giorno della settimana in cui viene effettuata la pulizia di tutte le camere, occupate o non, in tutto il piano
-* `id` è un identificatore universale utilizzato formalmente per rendere univoco ogni record
+* `giorno_pulizie` è il singolo giorno della settimana in cui viene effettuata la pulizia di tutte le camere, occupate o non, in tutto il piano; dal momento in cui si tratta di un singolo giorno della settimana
+* `id` 
 * ``
+
+![generati da phpmyadmin](https://i.imgur.com/rJpETqQ.png)
+
 
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
