@@ -96,10 +96,10 @@ Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo st
 
 *Taabella Stanze*:
 * `codiceStanza` è un `INTEGER` che viene incrementato di riga in riga; ha funzione analoga a `Piani.id`;
-* `capienza_massima` può essere rappresentato da un numero intero, in quanto una persona può essere contenuta interamente o, alternativamente, per nulla in una camera; il tipo dato scelto è quindi `INTEGER`;
+* `capienza_massima` può essere rappresentato da un numero intero, in quanto una persona può essere contenuta interamente o, alternativamente, per nulla in una camera; il tipo dato scelto è quindi `INTEGER`.
 
 *Tabella Prenotazioni*:
-* codicePrenotazione
+* codicePrenotazione lo rappresentiamo mediante un numero intero e scegliamo il tipo `INTEGER`
 
 ![generati da phpmyadmin](https://i.imgur.com/rJpETqQ.png)
 Per mezzo di PhpMyAdmin abbiamo realizzato un modello unico che racchiuda sia le informazioni del modello fisico che logico. Difatti abbiamo specificato le relazioni tra le varie tabelle per mezzo di **Foreign Key** e di **Primary Key** e la **tipizzazione dei dati** , dando per implicito il fatto che siano tutti richiesti. 
