@@ -80,6 +80,12 @@ Questo vincolo si riferisce all'attributo `email` della tabella `Dipendente`.
 * `V10 : ( LOCATE("@", Clienti.email ) != 0) ) `:
 Allo stesso modo di come abbiamo fatto nel vincolo precedente, effettuiamo lo stesso controllo per l'attributo `email` ma per i record nella tabella `Clienti` questa volta.
 
-## Tipi dato adoperati
+## Tipi dati usati
+*Tabella Clienti*:
+* `nome`, `cognome`, `luogoNascita`, `email` sono campi composti da una sequenza alfanumerica: scegliamo il tipo dato `VARCHAR` con una lunghezza di 100 caratteri, in quanto sono dati non eccessivamente lunghi;
+* `immagine_documento_scannerizzato` è il percorso di un file che, analogamente ai campi sopra citati, è rappresentato da una sequenza di caratteri alfa-simbolico-numerica; anche in questo caso, si può ricorrere al tipo `VARCHAR` ma, dal momento in cui il path di un file può essere piuttosto lungo, aumentiamo la lunghezza a 250 caratteri, il massimo per questo tipo dato in SQL; 
+* `data_di_nascita` è una data, che può essere rappresentata in SQL con il tipo dato `DATE` (ci consente di raccogliere in un unico attributo giorno, mese ed anno);
+* `numero_telefono` è il recapito telefonico, cellulare, di un cliente; possiamo farlo rassomigliare ad un numero intero di OdG 10^9 (quindi con 10 cifre totali): scegliamo quindi il tipo `INTEGER` di OdG 9;
+* `sesso`: una persona (non tenendo conto delle definizione non-binarie dei sessi)
 
 _Nessun membro di StackOverflow è stato violentato per la realizzazione di questo programma._
